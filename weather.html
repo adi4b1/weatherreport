@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .weatherBody{
+            width:350px;
+           
+            position:relative;
+            margin-left:480px;
+        }
+        .cardBody{
+            display:flex;
+            flex-direction:column;
+            flex:1fr 100px;
+           border-radius: 20px;
+            background-color: aquamarine;
+        }
+        .humwind{
+            display:flex;
+            flex-direction:row;
+            flex:1fr 1fr;
+            padding:4px;
+            justify-content: space-evenly;
+        }
+       
+        .humwindPos{
+            display:flex;
+            flex-direction:row;
+            
+            align-items: center;
+            align-content: center;
+           
+        }
+        .humwindtext{
+            padding:4px;
+            margin:8px;
+        }
+        .firstBlock{
+            padding:10px;
+        }
+        input{
+            width:280px;
+            height:30px;
+            border-radius: 15px;
+            border:1px solid white;
+            font-size: 18px;
+        }
+        button{
+            height:30px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+        #submitButton img{
+            height:15px;
+            width:15px;
+           
+        }
+        .forwindhum{
+            width:40px;height:40px;
+            mix-blend-mode:darken
+        }
+        .wImg{
+            mix-blend-mode:darken;
+            width:200px;
+            height:200px;
+
+        }
+        .weather{
+            display:none;
+        }
+        .notFound{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="weatherBody">
+        <h1 align="center">Weather portal</h1>
+        <div class="cardBody"  align="center">
+           
+            <div class="firstBlock">
+                <input type="text" required placeholder="type:hyderabad,dubai" 
+                spellcheck="false" id="inputBox">
+                <button id="submitButton">
+                    <img src="../pro2/images/search.png" alt="get">
+                </button>
+            </div>
+            <div>
+                <h3 class="notFound">Invalid City</h3>
+            </div>
+            <div class="weather">
+                <div>
+                    <img src="../pro2/images/normalsun.jpg" class="wImg" alt="">
+                </div>
+                <h2 id="forTemp">29°C</h2>
+                <h2 id="forCityName">amaravathi</h2>
+                <div class="humwind">
+                    <div class="humwindPos">
+                        <img src="../pro2/images/humidity.png" class="forwindhum" alt="">
+                        <div class="humwindtext">
+                            <h2 id="forHum">65%</h2>
+                            <h4>Humidity</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="humwindPos">
+                        <img src="../pro2/images/wind.png" class="forwindhum" alt="">
+                        
+                        <div class="humwindtext">
+                            <h2 id="forwind">7km/h</h2>
+                            <h4>Wind</h4>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="../pro2/weather.js"></script>
+</body>
+</html>
