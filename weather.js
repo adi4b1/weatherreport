@@ -41,6 +41,7 @@ async function getWeather(city) {
         document.querySelector('.weather').style.display="block"
   } catch (error) {
     document.querySelector(".notFound").style.display = "block";
+    document.querySelector(".weather").style.display = "none";
     // console.log('city not found');
     // document.getElementById("forCityName").innerHTML =
     //   "<h1>city not found</h1>";
