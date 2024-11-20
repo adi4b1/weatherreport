@@ -8,8 +8,17 @@ let button = document.querySelector("#submitButton");
 
 let weatherImg = document.querySelector(".wImg");
 
+let loading=document.getElementById('load')
+document.addEventListener("DOMContentLoaded",()=>{
+  if(input){
+    input.focus()
+  }
+})
+
+
 async function getWeather(city) {
   try {
+    loading.style.display="block";
         const getData = await fetch(API_URL + city + `&appid=${API_KEY}`);
 
         // console.log(data);
@@ -33,10 +42,13 @@ async function getWeather(city) {
         weatherImg.style.mixBlendMode = "darken";
         } else if (ct < 0) {
         weatherImg.src = "images/cold.jpg";
+        weatherImg.style.mixBlendMode = "darken";
         } else if (ct > 10 && ct < 29) {
         weatherImg.src = "images/normalsun.jpg";
+        weatherImg.style.mixBlendMode = "darken";
         } else {
         weatherImg.src = "images/cloud.jpg";
+        weatherImg.style.mixBlendMode = "darken";
         }
         document.querySelector('.weather').style.display="block"
   } catch (error) {
@@ -49,6 +61,8 @@ async function getWeather(city) {
     // document.getElementById("forHum").innerHTML = "";
     // document.getElementById("forwind").innerHTML = "";
     // weatherImg.innerHTML = "";
+  }finally{
+    loading.style.display="none"
   }
 }
 

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Report</title>
     <link rel="icon" type="image/png" href="/images/download.jpg"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         /*.weatherBody{
             position:absolute;
@@ -15,19 +17,23 @@
         .weatherBody{
             display:grid;
             place-items:center;
+            padding-top:60px;
         }
         .cardBody{
             display:flex;
             flex-direction:column;
-            flex:1fr 100px;
-           border-radius: 20px;
+           
+            height:99%;
+            max-height:500px;
+           border-radius: 30px;
             background-color: aquamarine;
+            box-shadow:1px 1px 10px gray;
         }
         .humwind{
             display:flex;
             flex-direction:row;
             flex:1fr 1fr;
-            padding:4px;
+            padding:10px;
             justify-content: space-evenly;
         }
        
@@ -48,33 +54,51 @@
         }
         input{
             width:280px;
-            height:30px;
-            border-radius: 15px;
+            height:40px;
+            border-radius: 20px;
             border:1px solid white;
             font-size: 18px;
+            padding:6px;
         }
         button{
-            height:30px;
-            border-radius: 15px;
+            height:40px;
+            width:40px;
+            border-radius: 20px;
             cursor: pointer;
+            outline:none;
+            border:none;
+            background-color: rgb(92, 201, 234);
+            color:white;
         }
         #submitButton img{
             height:15px;
             width:15px;
+            mix-blend-mode: darken;
            
         }
         .forwindhum{
             width:40px;height:40px;
-            mix-blend-mode:darken
+            mix-blend-mode:darken;
         }
         .wImg{
-            mix-blend-mode:darken;
+            mix-blend-mode: darken;
             width:200px;
             height:200px;
 
         }
         .weather{
             display:none;
+            animation: weatherbody 0.5s ease-in-out forwards;
+        }
+        @keyframes weatherbody {
+            from{
+                opacity: 0;
+            
+            }
+            to{
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         .notFound{
             display:none;
@@ -83,39 +107,46 @@
 </head>
 <body>
     <div class="weatherBody">
+       
         <h1 align="center">Weather portal</h1>
         <div class="cardBody"  align="center">
            
             <div class="firstBlock">
-                <input type="text" required placeholder="type:hyderabad,dubai" 
+                <input type="text" required placeholder="Search:hyderabad,dubai" 
                 spellcheck="false" id="inputBox">
                 <button id="submitButton">
-                    <img src="/images/search.png" alt="get">
+                    <img src="./images/search.png" alt="get">
                 </button>
             </div>
             <div>
+                
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" style="display:none" role="status" id="load">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  </div>
                 <h3 class="notFound">Invalid City</h3>
             </div>
             <div class="weather">
                 <div>
-                    <img src="/images/normalsun.jpg" class="wImg" alt="">
+                    <img src="./images/normalsun.jpg" class="wImg" alt="">
                 </div>
                 <h2 id="forTemp">29°C</h2>
                 <h2 id="forCityName">amaravathi</h2>
                 <div class="humwind">
                     <div class="humwindPos">
-                        <img src="/images/humidity.png" class="forwindhum" alt="">
+                        <img src="./images/water-solid.svg" class="forwindhum" alt="">
                         <div class="humwindtext">
-                            <h2 id="forHum">65%</h2>
+                            <h3 id="forHum">65%</h3>
                             <h4>Humidity</h4>
                         </div>
                     </div>
-                    <hr>
+                    <hr style="color:red;">
                     <div class="humwindPos">
-                        <img src="/images/wind.png" class="forwindhum" alt="">
-                        
+                        <img src="./images/wind-solid.svg" class="forwindhum" alt="">
+                        <!-- <i class="fa-solid fa-wind"></i> -->
                         <div class="humwindtext">
-                            <h2 id="forwind">7km/h</h2>
+                            <h3 id="forwind">7km/h</h3>
                             <h4>Wind</h4>
                         </div>
                     </div>
@@ -124,6 +155,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="weather.js"></script>
 </body>
 </html>
